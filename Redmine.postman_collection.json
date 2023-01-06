@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "ba3018f7-0b32-4d0e-8c36-94a133340cc8",
+		"name": "Redmine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17382223"
+	},
+	"item": [
+		{
+			"name": "Showing an issue",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "15901590sS",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Romaz9n",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/issues/37140.json",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"issues",
+								"37140.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Listing issues",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Folder",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "15901590sS",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Romaz9n",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"issue\": {\r\n    \"subject\": \"Subject changed\",\r\n    \"notes\": \"The subject was changed\" \r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/issues/37140.json",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"issues",
+								"37140.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "15901590sS",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Romaz9n",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"issues\": {\r\n        \"project_id\": 1,\r\n        \"tracker_id\": 1,\r\n        \"status_id\": 1,\r\n        \"subject\": \"Example 23,03,20{{$randomInt}}\",\r\n        \"category_id\": 1,\r\n        \"priority_id\": 1,\r\n        \"description\": \"blabla\",\r\n        \"assigned_to_id\": 5,\r\n        \"watcher_user_ids\": 8,\r\n        \"is_private\": \"true\",\r\n        \"estimated_hours\": 8.0\r\n\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://www.redmine.org/issues/37140.json",
+							"protocol": "https",
+							"host": [
+								"www",
+								"redmine",
+								"org"
+							],
+							"path": [
+								"issues",
+								"37140.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Folder",
+			"item": []
+		},
+		{
+			"name": "All tickets + 10 tickets limit",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "15901590sS",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Romaz9n",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/issues.json?limit=10",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"issues.json"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All tickets",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "15901590sS",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Romaz9n",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/issues.json",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"issues.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All tickets Copy",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "15901590sS",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Romaz9n",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/issues.json?issue_id=37134",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"issues.json"
+					],
+					"query": [
+						{
+							"key": "issue_id",
+							"value": "37134"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

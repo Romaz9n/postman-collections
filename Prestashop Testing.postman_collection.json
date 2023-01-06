@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "5cd895ff-a349-4939-9949-53726aa564d3",
+		"name": "Prestashop Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17382223"
+	},
+	"item": [
+		{
+			"name": "Get all customers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://prestashop.qatestlab.com.ua/api/customers?ws_key=QNEXDTT557LLADXW5E8S71NC1HDMQI75 ",
+					"protocol": "http",
+					"host": [
+						"prestashop",
+						"qatestlab",
+						"com",
+						"ua"
+					],
+					"path": [
+						"api",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "ws_key",
+							"value": "QNEXDTT557LLADXW5E8S71NC1HDMQI75 "
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get information for 1 particular customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://prestashop.qatestlab.com.ua/api/customers/78?ws_key=QNEXDTT557LLADXW5E8S71NC1HDMQI75",
+					"protocol": "http",
+					"host": [
+						"prestashop",
+						"qatestlab",
+						"com",
+						"ua"
+					],
+					"path": [
+						"api",
+						"customers",
+						"78"
+					],
+					"query": [
+						{
+							"key": "ws_key",
+							"value": "QNEXDTT557LLADXW5E8S71NC1HDMQI75"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post - Create new customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\r\n<customer>\r\n    <passwd>2b6d429242c1c8e19501f3a243d5c4aa</passwd>\r\n    <lastname>CreatedLastName КК</lastname>\r\n    <firstname>CreatedFirstName</firstname>\r\n    <email>mail4test23@gmail.com</email>\r\n    <id_gender>1</id_gender>\r\n    <birthday>1989-04-07</birthday>\r\n</customer>\r\n</prestashop>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://prestashop.qatestlab.com.ua/api/customers?ws_key=QNEXDTT557LLADXW5E8S71NC1HDMQI75",
+					"protocol": "http",
+					"host": [
+						"prestashop",
+						"qatestlab",
+						"com",
+						"ua"
+					],
+					"path": [
+						"api",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "ws_key",
+							"value": "QNEXDTT557LLADXW5E8S71NC1HDMQI75"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Negative Case // Creating user with invalid DOB",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\r\n<customer>\r\n    <passwd>2b6d429242c1c8e19501f3a243d5c4aa</passwd>\r\n    <lastname>CreatedLastName КК</lastname>\r\n    <firstname>CreatedFirstName</firstname>\r\n    <email>mail4test23@gmail.com</email>\r\n    <id_gender>1</id_gender>\r\n    <birthday>4054-04-aa</birthday>\r\n</customer>\r\n</prestashop>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://prestashop.qatestlab.com.ua/api/customers?ws_key=QNEXDTT557LLADXW5E8S71NC1HDMQI75",
+					"protocol": "http",
+					"host": [
+						"prestashop",
+						"qatestlab",
+						"com",
+						"ua"
+					],
+					"path": [
+						"api",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "ws_key",
+							"value": "QNEXDTT557LLADXW5E8S71NC1HDMQI75"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Negative case // Delete nonexistent customer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://prestashop.qatestlab.com.ua/api/customers/27454828?ws_key=QNEXDTT557LLADXW5E8S71NC1HDMQI75",
+					"protocol": "http",
+					"host": [
+						"prestashop",
+						"qatestlab",
+						"com",
+						"ua"
+					],
+					"path": [
+						"api",
+						"customers",
+						"27454828"
+					],
+					"query": [
+						{
+							"key": "ws_key",
+							"value": "QNEXDTT557LLADXW5E8S71NC1HDMQI75"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign in",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://prestashop.qatestlab.com.ua/en/authentication?back=my-account",
+					"protocol": "http",
+					"host": [
+						"prestashop",
+						"qatestlab",
+						"com",
+						"ua"
+					],
+					"path": [
+						"en",
+						"authentication"
+					],
+					"query": [
+						{
+							"key": "back",
+							"value": "my-account"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Negative Case with wrong key",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://prestashop.qatestlab.com.ua/api/customers?ws_key=QNEXDTT557LLADXW5E8S71NC1HDMQI73",
+					"protocol": "http",
+					"host": [
+						"prestashop",
+						"qatestlab",
+						"com",
+						"ua"
+					],
+					"path": [
+						"api",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "ws_key",
+							"value": "QNEXDTT557LLADXW5E8S71NC1HDMQI73"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contact-us",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://prestashop.qatestlab.com.ua/en/contact-us",
+					"protocol": "http",
+					"host": [
+						"prestashop",
+						"qatestlab",
+						"com",
+						"ua"
+					],
+					"path": [
+						"en",
+						"contact-us"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://prestashop.qatestlab.com.ua/en/order",
+					"protocol": "http",
+					"host": [
+						"prestashop",
+						"qatestlab",
+						"com",
+						"ua"
+					],
+					"path": [
+						"en",
+						"order"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

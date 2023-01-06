@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "d226c1e1-ba24-415e-a1c8-98e262a427e8",
+		"name": "Internal Cource",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17382223"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "value",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"apikey\": \"22ef069e-b845-40a8-8bf5-858572caad61\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api4.thetvdb.com/v4/login",
+					"protocol": "https",
+					"host": [
+						"api4",
+						"thetvdb",
+						"com"
+					],
+					"path": [
+						"v4",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "apikey",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "22ef069e-b845-40a8-8bf5-858572caad61",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"apikey\": \"22ef069e-b845-40a8-8bf5-858572caad61\",\r\n  \"userkey\": \"627AAC0783D2A9.79845437\",\r\n  \"username\": \"Romaz9n\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "https://api.thetvdb.com/login",
+					"protocol": "https",
+					"host": [
+						"api",
+						"thetvdb",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
